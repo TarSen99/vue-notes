@@ -1,8 +1,13 @@
 import Vue from 'vue'
 import App from './App.vue'
+import connectVendor from './vendor';
 
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
 
-new Vue({
+const { router, store } = connectVendor(Vue);
+
+const app = new Vue({
+  router,
+  store,
   render: h => h(App),
-}).$mount('#app')
+}).$mount('#app');
